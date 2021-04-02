@@ -1,0 +1,45 @@
+{
+  "name": "@cocreate/metrics-server",
+  "version": "0.5.5",
+  "description": "CoCreate-metrics-server",
+  "keywords": [
+    "cocreate-metrics",
+    "cocreate",
+    "low-code-framework",
+    "no-code-framework",
+    "cocreatejs",
+    "cocreatejs-component",
+    "cocreate-framework",
+    "no-code",
+    "low-code",
+    "collaborative-framework",
+    "realtime",
+    "realtime-framework",
+    "collaboration",
+    "shared-editing",
+    "html5-framework",
+    "javascript-framework"
+  ],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoCreate-app/CoCreate-metrics-server.git"
+  },
+  "author": "CoCreate LLC",
+  "license": "unlicensed",
+  "bugs": {
+    "url": "https://github.com/CoCreate-app/CoCreate-metrics-server/issues"
+  },
+  "homepage": "https://cocreate.app/docs/CoCreate-metrics-server",
+  "scripts": {
+    "demo": "PORT=5000 node demo/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@cocreate/docs": "^1.0.3",
+    "mongodb": "^3.5.8"
+  },
+  "devDependencies": {
+    "express": "^4.17.1"
+  }
+}
