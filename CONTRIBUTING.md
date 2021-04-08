@@ -11,7 +11,7 @@ In the examples below, substitute your Github username for `contributor` in URLs
 Fork the [project on Github](https://github.com/CoCreate-app/CoCreate-metrics-server) and check out your copy.
 
 ```
-git boilerplate https://github.com/contributor/CoCreate-metrics-server.git
+git clone https://github.com/contributor/CoCreate-metrics-server.git
 cd CoCreate-metrics-server
 git remote add upstream https://github.com/CoCreate-app/CoCreate-metrics-server.git
 ```
