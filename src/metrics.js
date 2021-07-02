@@ -155,7 +155,8 @@ class CoCreateMetrics extends CoCreateBase {
 				out_size: outSize,
 				memory_size: memorySize,
 				client_cnt: item.client_cnt,
-				db_size: dbSize
+				db_size: dbSize,
+				type: 'crud',
 			});
 		})
 		this.__refresh();
@@ -166,7 +167,7 @@ class CoCreateMetrics extends CoCreateBase {
 		if(!data || !data.organization) return;
 		
 		try{
-			var collection = this.getDB(data.organization).collection('jin_metrics_crud');
+			var collection = this.getDB(data.organization).collection('metrics');
 			await collection.insertOne(data);
 		}catch(error){
 			console.log('createDocument error', error);
