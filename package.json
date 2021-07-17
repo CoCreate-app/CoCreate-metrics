@@ -21,6 +21,10 @@
     "javascript-framework"
   ],
   "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CoCreate-app/CoCreate-metrics-server.git"

@@ -39,7 +39,7 @@ class CoCreateMetrics extends CoCreateBase {
 		})
 	}
 	
-	setBandwidth({type, data, org_id, total_cnt}) {
+	setBandwidth({type, data, org_id}) {
 		try {
 			let date = new Date();
 			let size = 0;
@@ -53,12 +53,11 @@ class CoCreateMetrics extends CoCreateBase {
 			}
 			
 			if (size > 0 && org_id) {
-	
 				let item = this.metrics.get(org_id);
 				if (!item) return
 				
 				item.time = date.toISOString();
-				
+
 				if (type == "in") {
 				   item.in_size.push(size);
 				} else {
@@ -122,7 +121,7 @@ class CoCreateMetrics extends CoCreateBase {
 
 		const used = process.memoryUsage();
 		let totalMemory = used.heapUsed;
-		
+
 		await this.metrics.forEach(async (item, org) => {
 
 			let inSize = 0, outSize = 0, memorySize = 0
@@ -168,7 +167,7 @@ class CoCreateMetrics extends CoCreateBase {
 		
 		try{
 			var collection = this.getDB(data.organization).collection('metrics');
-			await collection.insertOne(data);
+			let ret_data = await collection.insertOne(data);
 		}catch(error){
 			console.log('createDocument error', error);
 		}
