@@ -1,6 +1,6 @@
 {
   "name": "@cocreate/metrics-server",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "CoCreate-metrics-server",
   "keywords": [
     "cocreate-metrics",
@@ -24,7 +24,6 @@
   "publishConfig": {
     "access": "public"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CoCreate-app/CoCreate-metrics-server.git"
