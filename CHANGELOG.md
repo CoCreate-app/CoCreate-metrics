@@ -1,3 +1,11 @@
+## [1.0.7](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.0.6...v1.0.7) (2021-11-11)
+
+
+### Bug Fixes
+
+* licensing information ([d18bab4](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/d18bab412e1a552d25d81e91aecbcbb61b01f9e7))
+* update readme ([bff7aa7](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/bff7aa721cf84d079c02b3cd8ab83b3998c73379))
+
 ## [1.0.6](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.0.5...v1.0.6) (2021-11-11)
 
 
