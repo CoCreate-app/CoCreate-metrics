@@ -8,7 +8,7 @@ module.exports = {
         {
             "entry": "./docs/index.html",
             "collection": "files",
-            "document_id": "",
+            "document_id": "6204253780b409001727b73f",
             "key": "src",
             "data": {
                 "name": "index.html",
