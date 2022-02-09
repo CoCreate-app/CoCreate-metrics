@@ -1,3 +1,10 @@
+## [1.0.9](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.0.8...v1.0.9) (2022-02-09)
+
+
+### Bug Fixes
+
+* add document_id to CoCreate.config ([14baacc](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/14baaccc74a7a939aa0eb4cdcc1d4b47bb5a6a2d))
+
 ## [1.0.8](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.0.7...v1.0.8) (2022-02-09)
 
 
