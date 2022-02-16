@@ -40,7 +40,7 @@
     "docs": "node ./node_modules/@cocreate/docs/src/index.js"
   },
   "dependencies": {
-    "@cocreate/docs": "^1.2.68",
+    "@cocreate/docs": "^1.2.70",
     "mongodb": "^3.5.8"
   },
   "devDependencies": {
