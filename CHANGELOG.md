@@ -1,3 +1,10 @@
+## [1.0.11](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.0.10...v1.0.11) (2022-02-28)
+
+
+### Bug Fixes
+
+* config docs wildcard * domain ([349ad30](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/349ad305b04f129a8a3d5f2d426791fc3018d993))
+
 ## [1.0.10](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.0.9...v1.0.10) (2022-02-16)
 
 
