@@ -1,22 +1,19 @@
-
-const CoCreateBase = require("./base");
 const process = require("process")
 
-class CoCreateMetrics extends CoCreateBase {
-	constructor(wsManager, db) {
-		super(wsManager, db);
+class CoCreateMetrics {
+	constructor(wsManager, dbClient) {
+		this.wsManager = wsManager, 
+		this.dbClient = dbClient;
 		this.metrics = new Map();
 		this.cycleTime = 60;
-		
 		this.staticMemorySize = "10";
-		
 		this.init();
 	}
 	
 	init() {
 		if (this.wsManager) {
-			this.wsManager.on('setBandwidth', 	(socket, data) => this.setBandwidth(data));
-			this.wsManager.on('createMetrics', 	(socket, data) => this.create(data));
+			this.wsManager.on('setBandwidth', (socket, data) => this.setBandwidth(data));
+			this.wsManager.on('createMetrics', (socket, data) => this.create(data));
 			this.wsManager.on('deleteMetrics', 	(socket, data) => this.remove(data));
 			this.wsManager.on('changeCountMetrics', (socket, data) => this.changeCount(data))
 		}
@@ -123,7 +120,6 @@ class CoCreateMetrics extends CoCreateBase {
 		let totalMemory = used.heapUsed;
 
 		await this.metrics.forEach(async (item, org) => {
-
 			let inSize = 0, outSize = 0, memorySize = 0
 			inSize = item.in_size.reduce((a, b) => a + b, 0);
 			outSize = item.out_size.reduce((a, b) => a + b, 0);
@@ -144,7 +140,7 @@ class CoCreateMetrics extends CoCreateBase {
 			// memorySize = (item.client_cnt / total_cnt) * totalMemory + inSize + outSize;
 			memorySize = maxIn > maxOut ? maxIn : maxOut;
 			
-			let dbSize = await self.getDB(org).stats()
+			let dbSize = await this.dbClient.db(org).stats()
 			delete dbSize['$clusterTime'];
 
 			await self.storeMetrics({
@@ -164,12 +160,11 @@ class CoCreateMetrics extends CoCreateBase {
 	/** store metrics **/
 	async storeMetrics(data){
 		if(!data || !data.organization) return;
-		
 		try{
-			var collection = this.getDB(data.organization).collection('metrics');
+			var collection = this.dbClient.db(data.organization).collection('metrics');
 			let ret_data = await collection.insertOne(data);
 		}catch(error){
-			console.log('createDocument error', error);
+			console.log('storeMetrics error', error);
 		}
 	}
 }
