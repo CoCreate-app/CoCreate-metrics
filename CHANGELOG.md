@@ -1,3 +1,12 @@
+## [1.0.12](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.0.11...v1.0.12) (2022-03-03)
+
+
+### Bug Fixes
+
+* main: ./src/index.js ([5731688](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/573168875aada3535368956df0e01c77e18fa306))
+* remove securityCheck function, it has be replaced by permissions ([3605e2f](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/3605e2fe98ad8f1db6d3cb4455b2968b2fab4b72))
+* removed base.js and related functions from metric.js ([d55f929](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/d55f929510505ca2ee220bed9ec1bfee4e3e0e30))
+
 ## [1.0.11](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.0.10...v1.0.11) (2022-02-28)
 
 
