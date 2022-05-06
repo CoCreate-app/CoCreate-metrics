@@ -1,3 +1,10 @@
+## [1.0.13](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.0.12...v1.0.13) (2022-05-06)
+
+
+### Bug Fixes
+
+* update config organization_Id to organization_id ([d2b9bba](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/d2b9bbac35287cec1b79982a1ece4272a053df2f))
+
 ## [1.0.12](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.0.11...v1.0.12) (2022-03-03)
 
 
