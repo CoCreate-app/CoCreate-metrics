@@ -104,8 +104,10 @@ class CoCreateMetrics {
 		if (!org_id || org_id == 'users') return;
 		let metric = this.metrics.get(org_id)
 		if (!metric) {
-			metric.total_cnt = total_cnt;
-			metric.client_cnt = client_cnt;
+			create({org_id, client_cnt, total_cnt})
+			// metric = {};
+			// metric['total_cnt'] = total_cnt;
+			// metric['client_cnt'] = client_cnt;
 		}
 	}
 	

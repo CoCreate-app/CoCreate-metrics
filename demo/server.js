@@ -11,7 +11,8 @@ const socketServer = new SocketServer("ws");
 
 const port = process.env.PORT || 8081;
 
-MongoClient.connect(config.db_url, { useNewUrlParser: true, poolSize: 10 })
+let dbURL = process.env.MONGO_URL || config.db_url;
+MongoClient.connect(dbURL, { useNewUrlParser: true })
 	.then(db_client => {
 		  CoCreateMetrics.init(socketServer, db_client);
 	})
