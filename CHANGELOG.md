@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.0.14...v1.1.0) (2022-05-14)
+
+
+### Features
+
+* function readDocumentList has been renamed to readDocuments ([6c8d5cb](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/6c8d5cb86e7bb71bd7859924c3b20c9e1d17073e))
+
 ## [1.0.14](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.0.13...v1.0.14) (2022-05-13)
 
 
