@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.1.0...v1.2.0) (2022-05-29)
+
+
+### Features
+
+* deleteOrg event listener to remove an org from metrics instance ([c04d1c5](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/c04d1c5ecc7efe50c973bd4798b2eec29d36f808))
+
 # [1.1.0](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.0.14...v1.1.0) (2022-05-14)
 
 
