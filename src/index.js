@@ -17,6 +17,10 @@ class CoCreateMetrics {
 			this.wsManager.on('deleteMetrics', 	(socket, data) => this.remove(data));
 			this.wsManager.on('changeCountMetrics', (socket, data) => this.changeCount(data))
 		}
+		
+		process.on('deleteOrg', async (org_id) => {
+			this.metrics.delete(org_id)
+		})
 
 		let self = this;
 		this.timer = setInterval(() => {
