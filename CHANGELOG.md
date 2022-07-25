@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.2.0...v1.2.1) (2022-07-25)
+
+
+### Bug Fixes
+
+* replaced attribute pass-fetch_value with pass-filter-value ([a8793ae](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/a8793ae945316ba589e1355fcf591444843b2dd8))
+
 # [1.2.0](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.1.0...v1.2.0) (2022-05-29)
 
 
