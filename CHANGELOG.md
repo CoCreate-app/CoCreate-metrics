@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.3.1...v1.3.2) (2022-11-21)
+
+
+### Bug Fixes
+
+* replaced document_id with document._id ([99425a3](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/99425a38014d3dfa9537f8e6b9863f0ee670b6b5))
+
 ## [1.3.1](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.3.0...v1.3.1) (2022-11-21)
 
 
