@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.2.5...v1.3.0) (2022-11-21)
+
+
+### Bug Fixes
+
+* bump [@cocreate](https://github.com/cocreate) dependencies ([4782176](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/47821767f196fc2f546b70d3ebe61f99a5c96e77))
+
+
+### Features
+
+* updated to use new crud which has the abilty to use multiple databases ([c6af2fb](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/c6af2fb79e19480da02194a44f768f2b96b7909a))
+
 ## [1.2.5](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.2.4...v1.2.5) (2022-10-02)
 
 
