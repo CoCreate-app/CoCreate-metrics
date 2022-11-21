@@ -10,7 +10,7 @@ module.exports = {
             "collection": "files",
             "document_id": "6204253780b409001727b73f",
             "key": "src",
-            "data": {
+            "document": {
                 "name": "index.html",
                 "path": "/docs/metric-server/index.html",
                 "domains": [
