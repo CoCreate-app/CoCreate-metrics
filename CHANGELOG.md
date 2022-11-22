@@ -1,3 +1,10 @@
+## [1.3.4](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.3.3...v1.3.4) (2022-11-22)
+
+
+### Bug Fixes
+
+* apply src: {{source}} to CoCreate.config ([06e4024](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/06e4024e1a96d25873f9b1d5d86997b72444a378))
+
 ## [1.3.3](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.3.2...v1.3.3) (2022-11-21)
 
 
