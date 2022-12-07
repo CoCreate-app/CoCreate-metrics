@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.3.15...v1.4.0) (2022-12-07)
+
+
+### Features
+
+* save metric if database has collections ([e95cd06](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/e95cd06752f42c30622a1bcb1c93905f8670cfd7))
+
 ## [1.3.15](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.3.14...v1.3.15) (2022-12-04)
 
 
