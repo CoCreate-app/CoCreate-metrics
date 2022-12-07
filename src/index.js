@@ -18,8 +18,8 @@ class CoCreateMetrics {
 			this.wsManager.on('changeCountMetrics', (socket, data) => this.changeCount(data))
 		}
 
-		process.on('deleteOrg', async (org_id) => {
-			this.metrics.delete(org_id)
+		process.on('deleteOrg', async (organization_id) => {
+			this.metrics.delete(organization_id)
 		})
 
 		let self = this;
@@ -32,7 +32,7 @@ class CoCreateMetrics {
 		let date = new Date();
 		let strDate = date.toISOString();
 
-		this.metrics.forEach((item, org) => {
+		this.metrics.forEach((item) => {
 			item.time = strDate;
 			item.in_size = [];
 			item.out_size = [];
@@ -40,7 +40,7 @@ class CoCreateMetrics {
 		})
 	}
 
-	setBandwidth({ type, data, org_id }) {
+	setBandwidth({ type, data, organization_id }) {
 		try {
 			let date = new Date();
 			let size = 0;
@@ -53,8 +53,8 @@ class CoCreateMetrics {
 				size = Buffer.byteLength(data, 'utf8');
 			}
 
-			if (size > 0 && org_id) {
-				let item = this.metrics.get(org_id);
+			if (size > 0 && organization_id) {
+				let item = this.metrics.get(organization_id);
 				if (!item) return
 
 				item.time = date.toISOString();
@@ -71,9 +71,9 @@ class CoCreateMetrics {
 		}
 	}
 
-	setMemory({ data, org_id }) {
-		if (data > 0 && org_id) {
-			let item = this.metrics.get(org_id)
+	setMemory({ data, organization_id }) {
+		if (data > 0 && organization_id) {
+			let item = this.metrics.get(organization_id)
 			if (!item) return
 
 			item.memory = data;
@@ -81,37 +81,36 @@ class CoCreateMetrics {
 		}
 	}
 
-	create({ org_id, client_cnt, total_cnt }) {
-		if (!org_id || org_id == 'users') return;
+	create({ organization_id, client_cnt, total_cnt }) {
+		if (!organization_id || organization_id == 'users') return;
 
-		let metric = this.metrics.get(org_id);
+		let metric = this.metrics.get(organization_id);
 
 		if (!metric) {
-			this.metrics.set(org_id,
-				{
-					in_size: [],
-					out_size: [],
-					memorySize: [],
-					total_cnt: total_cnt,
-					client_cnt: client_cnt
-				})
+			this.metrics.set(organization_id, {
+				in_size: [],
+				out_size: [],
+				memorySize: [],
+				total_cnt: total_cnt,
+				client_cnt: client_cnt
+			})
 		} else {
 			metric.client_cnt = client_cnt;
 		}
 	}
 
-	remove({ org_id }) {
-		this.metrics.delete(org_id)
+	remove({ organization_id }) {
+		this.metrics.delete(organization_id)
 	}
 
-	changeCount({ org_id, total_cnt, client_cnt }) {
-		if (!org_id || org_id == 'users') return;
-		let metric = this.metrics.get(org_id)
-		if (!metric) {
-			this.create({ org_id, client_cnt, total_cnt })
-			// metric = {};
-			// metric['total_cnt'] = total_cnt;
-			// metric['client_cnt'] = client_cnt;
+	changeCount({ organization_id, total_cnt, client_cnt }) {
+		if (!organization_id || organization_id == 'users') return;
+		let metric = this.metrics.get(organization_id)
+		if (metric) {
+			metric['total_cnt'] = total_cnt;
+			metric['client_cnt'] = client_cnt;
+		} else {
+			this.create({ organization_id, client_cnt, total_cnt })
 		}
 	}
 
@@ -120,13 +119,13 @@ class CoCreateMetrics {
 		let self = this;
 
 		let total_cnt = 0;
-		this.metrics.forEach((item, org) => { total_cnt += item.client_cnt })
+		this.metrics.forEach((item) => { total_cnt += item.client_cnt })
 
 		const used = process.memoryUsage();
 		let totalMemory = used.heapUsed;
 
-		await this.metrics.forEach(async (item, org) => {
-			if (org) {
+		this.metrics.forEach(async (item, organization_id) => {
+			if (organization_id) {
 				let inSize = 0, outSize = 0, memorySize = 0
 				inSize = item.in_size.reduce((a, b) => a + b, 0);
 				outSize = item.out_size.reduce((a, b) => a + b, 0);
@@ -147,22 +146,24 @@ class CoCreateMetrics {
 				// memorySize = (item.client_cnt / total_cnt) * totalMemory + inSize + outSize;
 				memorySize = maxIn > maxOut ? maxIn : maxOut;
 
-				let dbSize = await self.crud.databaseStats({organization_id: org})
+				let dbSize = await self.crud.databaseStats({organization_id})
 				delete dbSize['$clusterTime'];
 
-				self.crud.createDocument({
-					collection: 'metrics',
-					organization: org,
-					document: {
-						date,
-						in_size: inSize,
-						out_size: outSize,
-						memorySize,
-						client_cnt: item.client_cnt,
-						dbSize,
-						type: 'crud',
-					}
-				});
+				if (dbSize.collections) {
+					self.crud.createDocument({
+						collection: 'metrics',
+						document: {
+							date,
+							in_size: inSize,
+							out_size: outSize,
+							memorySize,
+							client_cnt: item.client_cnt,
+							dbSize,
+							type: 'crud',
+						},
+						organization_id
+					});
+				}
 			}
 		})
 		this.__refresh();
