@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.1...v1.4.2) (2022-12-08)
+
+
+### Bug Fixes
+
+* removed mongodb dependency ([1f6e22e](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/1f6e22ecb49a723ead784c1f2d5040da7650a21e))
+
 ## [1.4.1](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.0...v1.4.1) (2022-12-07)
 
 
