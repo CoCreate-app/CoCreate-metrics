@@ -1,3 +1,10 @@
+## [1.4.16](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.15...v1.4.16) (2022-12-30)
+
+
+### Bug Fixes
+
+* update config sources to use template  braces with entry on src ([cbb4c40](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/cbb4c40a58c6f9c63bcc048cfd7b6d3c5de8cb19))
+
 ## [1.4.15](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.14...v1.4.15) (2022-12-29)
 
 
