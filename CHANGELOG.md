@@ -1,3 +1,10 @@
+## [1.4.18](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.17...v1.4.18) (2023-01-01)
+
+
+### Bug Fixes
+
+* docs sanbox overflow ([a57f247](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/a57f247b9dabf5ad51ee7aba1b6dfb1ffdd3933e))
+
 ## [1.4.17](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.16...v1.4.17) (2022-12-31)
 
 
