@@ -147,9 +147,9 @@ class CoCreateMetrics {
 				memorySize = maxIn > maxOut ? maxIn : maxOut;
 
 				let dbSize = await self.crud.databaseStats({organization_id})
-				delete dbSize['$clusterTime'];
 
 				if (dbSize.collections) {
+					delete dbSize['$clusterTime'];
 					self.crud.createDocument({
 						collection: 'metrics',
 						document: {
