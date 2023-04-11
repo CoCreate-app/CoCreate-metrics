@@ -1,3 +1,11 @@
+## [1.4.30](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.29...v1.4.30) (2023-04-11)
+
+
+### Bug Fixes
+
+* delete clusterTime ([bb93cb3](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/bb93cb39b4ed123c97b05797dad5509a704c58ad))
+* renamed domans to hosts ([8d8010e](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/8d8010ea2202ad7c7e6b710373603cbdaf5a0f38))
+
 ## [1.4.29](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.28...v1.4.29) (2023-02-01)
 
 
