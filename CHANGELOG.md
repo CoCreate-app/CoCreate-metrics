@@ -1,3 +1,10 @@
+## [1.4.31](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.30...v1.4.31) (2023-04-11)
+
+
+### Bug Fixes
+
+* remove demo/config ([4fe8b6c](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/4fe8b6cd65daea896c7cb15f9fe5865531fb7e0a))
+
 ## [1.4.30](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.29...v1.4.30) (2023-04-11)
 
 
