@@ -1,3 +1,10 @@
+## [1.4.32](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.31...v1.4.32) (2023-04-29)
+
+
+### Bug Fixes
+
+* dbSize if condition ([e5c8d47](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/e5c8d4707c6bdba19a31cd6ec18a928d809390da))
+
 ## [1.4.31](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.30...v1.4.31) (2023-04-11)
 
 
