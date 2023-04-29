@@ -148,7 +148,7 @@ class CoCreateMetrics {
 
 				let dbSize = await self.crud.databaseStats({organization_id})
 
-				if (dbSize.collections) {
+				if (dbSize && dbSize.collections) {
 					delete dbSize['$clusterTime'];
 					self.crud.createDocument({
 						collection: 'metrics',
