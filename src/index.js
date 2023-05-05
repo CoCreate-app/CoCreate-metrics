@@ -1,8 +1,8 @@
 const process = require("process")
 
 class CoCreateMetrics {
-	constructor(wsManager, crud) {
-		this.wsManager = wsManager,
+	constructor(crud) {
+		this.wsManager = crud.wsManager,
 		this.crud = crud;
 		this.metrics = new Map();
 		this.cycleTime = 60;
