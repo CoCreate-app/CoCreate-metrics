@@ -1,3 +1,10 @@
+## [1.4.33](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.32...v1.4.33) (2023-05-07)
+
+
+### Bug Fixes
+
+* crud.wsManger ([243654c](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/243654c246ba27adb14a1b796fa2b770091f25ed))
+
 ## [1.4.32](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.31...v1.4.32) (2023-04-29)
 
 
