@@ -1,3 +1,11 @@
+## [1.4.34](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.33...v1.4.34) (2023-05-11)
+
+
+### Bug Fixes
+
+* apikey renamed to key ([83e9d1b](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/83e9d1b9fc3c68eebb28c27c720593d03e9d16e7))
+* replace key ([b13062e](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/b13062e1811d8287249c8d521f66122819189d03))
+
 ## [1.4.33](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.32...v1.4.33) (2023-05-07)
 
 
