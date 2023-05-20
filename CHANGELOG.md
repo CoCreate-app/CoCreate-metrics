@@ -1,3 +1,10 @@
+## [1.4.35](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.34...v1.4.35) (2023-05-20)
+
+
+### Bug Fixes
+
+* updated dependencies to their latest versions ([5f9b978](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/5f9b9783d9bb60eb226ccc767a3a32701bd8a204))
+
 ## [1.4.34](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.33...v1.4.34) (2023-05-11)
 
 
