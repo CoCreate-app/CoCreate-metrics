@@ -12,10 +12,10 @@ class CoCreateMetrics {
 
     init() {
         if (this.wsManager) {
-            this.wsManager.on('setBandwidth', (socket, data) => this.setBandwidth(data));
-            this.wsManager.on('createMetrics', (socket, data) => this.create(data));
-            this.wsManager.on('deleteMetrics', (socket, data) => this.remove(data));
-            this.wsManager.on('changeCountMetrics', (socket, data) => this.changeCount(data))
+            this.wsManager.on('setBandwidth', (data) => this.setBandwidth(data));
+            this.wsManager.on('createMetrics', (data) => this.create(data));
+            this.wsManager.on('deleteMetrics', (data) => this.remove(data));
+            this.wsManager.on('changeCountMetrics', (data) => this.changeCount(data))
         }
 
         process.on('deleteOrg', async (organization_id) => {
