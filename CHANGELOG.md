@@ -1,3 +1,10 @@
+## [1.4.36](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.35...v1.4.36) (2023-05-21)
+
+
+### Bug Fixes
+
+* Refactor websocket event listeners for CoCreateMetrics class ([841597a](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/841597a7816ae4b7f4c4d2dc1c9805408d01fe54))
+
 ## [1.4.35](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.34...v1.4.35) (2023-05-20)
 
 
