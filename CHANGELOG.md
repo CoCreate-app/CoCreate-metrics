@@ -1,3 +1,11 @@
+## [1.4.38](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.37...v1.4.38) (2023-06-04)
+
+
+### Bug Fixes
+
+* [@v3](https://github.com/v3) ([d0b0aad](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/d0b0aad782f08078b0c4c301d654d14468967778))
+* html formating ([730f25e](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/730f25e43b11513b07c7eed6ea84b8287cef70c5))
+
 ## [1.4.37](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.36...v1.4.37) (2023-05-25)
 
 
