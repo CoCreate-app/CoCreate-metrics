@@ -1,3 +1,10 @@
+## [1.4.40](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.39...v1.4.40) (2023-06-04)
+
+
+### Bug Fixes
+
+* Refactor CoCreate.config.js to remove hard-coded credentials ([7ccec56](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/7ccec56171289a02567155e83100f36373565fe8))
+
 ## [1.4.39](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.38...v1.4.39) (2023-06-04)
 
 
