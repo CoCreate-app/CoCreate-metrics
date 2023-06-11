@@ -40,6 +40,6 @@
     "postinstall": "node $PWD/node_modules/@cocreate/cli/check-coc.js"
   },
   "dependencies": {
-    "@cocreate/cli": "^1.33.3"
+    "@cocreate/cli": "^1.33.4"
   }
 }
