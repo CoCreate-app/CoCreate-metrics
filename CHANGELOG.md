@@ -1,3 +1,11 @@
+## [1.4.49](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.48...v1.4.49) (2023-06-11)
+
+
+### Bug Fixes
+
+* testing workflow ([20c8121](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/20c8121eebdca9d3167d1e0d40f6cc8c62ff6fff))
+* testing workflow ([180c47c](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/180c47c6f0a42853e3fc36e1a8faf023d2a4accb))
+
 ## [1.4.48](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.47...v1.4.48) (2023-06-11)
 
 
