@@ -1,3 +1,10 @@
+## [1.4.45](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.44...v1.4.45) (2023-06-11)
+
+
+### Bug Fixes
+
+* @cocreate/cli moved to dependencies ([29e3b8b](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/29e3b8b61ce2221dc2b79b9499cc185f9268079d))
+
 ## [1.4.44](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.43...v1.4.44) (2023-06-11)
 
 
