@@ -39,7 +39,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "node ./node_modules/@cocreate/cli/check-coc.js"
   },
-  "devDependencies": {
+  "dependencies": {
     "@cocreate/cli": "^1.33.0"
   }
 }
