@@ -1,3 +1,10 @@
+## [1.4.46](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.45...v1.4.46) (2023-06-11)
+
+
+### Bug Fixes
+
+* postintall error ([57c6333](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/57c63336c322a26e658e131f4f9484ada8c0b639))
+
 ## [1.4.45](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.44...v1.4.45) (2023-06-11)
 
 
