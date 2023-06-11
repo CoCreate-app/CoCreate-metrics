@@ -1,3 +1,10 @@
+## [1.4.43](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.42...v1.4.43) (2023-06-11)
+
+
+### Bug Fixes
+
+* renamed hosts to host. the value can be a string or an array of strings ([ecfc4b7](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/ecfc4b7d295d69edb6676dc4acd0df7964d38c19))
+
 ## [1.4.42](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.41...v1.4.42) (2023-06-10)
 
 
