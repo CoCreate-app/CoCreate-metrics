@@ -38,8 +38,5 @@
     "demo": "PORT=5000 node demo/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "node -e \"const { execSync } = require('child_process'); try { execSync('coc --version', { stdio: 'ignore' }); } catch (error) { try { execSync('npm install -g @cocreate/cli', { stdio: 'inherit' }); console.log('Installed \"@cocreate/cli\" globally.'); } catch (error) { console.error('Failed to install \"@cocreate/cli\" globally:', error); } }\""
-  },
-  "dependencies": {
-    "@cocreate/cli": "^1.34.0"
   }
 }
