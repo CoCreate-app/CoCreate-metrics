@@ -4,8 +4,8 @@ module.exports = {
     "host": "",
     "sources": [
         {
-            "collection": "files",
-            "document": {
+            "array": "files",
+            "object": {
                 "_id": "6204253780b409001727b73f",
                 "name": "index.html",
                 "path": "/docs/metric-server/index.html",
