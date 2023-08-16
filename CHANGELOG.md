@@ -1,3 +1,16 @@
+# [1.5.0](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.54...v1.5.0) (2023-08-16)
+
+
+### Bug Fixes
+
+* crud attributes renamed ([c0bf5c1](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/c0bf5c19a2d04974d955ecb36e9f53a219980858))
+* Refactored *-target to *-selector ([1740fe1](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/1740fe1bccfb09dc401e15b1f66188b8685cc599))
+
+
+### Features
+
+* name attribute and variable renamed to key ([c744b3d](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/c744b3d2ba19013353432ee2d976121c1f54a4cd))
+
 ## [1.4.54](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.4.53...v1.4.54) (2023-06-14)
 
 
