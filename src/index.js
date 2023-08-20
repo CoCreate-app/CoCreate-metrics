@@ -84,20 +84,8 @@ class CoCreateMetrics {
         this.metrics.delete(organization_id)
     }
 
-    refresh() {
-        let date = new Date();
-        let strDate = date.toISOString();
-
-        this.metrics.forEach((item) => {
-            item.time = strDate;
-            item.dataIn = [];
-            item.dataOut = [];
-            item.memory = [];
-        })
-    }
-
     async store() {
-        let data, date = new Date();
+        let date = new Date();
         let self = this;
 
         this.metrics.forEach(async (item, organization_id) => {
@@ -120,7 +108,7 @@ class CoCreateMetrics {
 
                 memory = (dataIn + dataOut) / 2;
 
-                data = {
+                let data = {
                     method: 'create.object',
                     array: 'metrics',
                     object: {
@@ -140,14 +128,17 @@ class CoCreateMetrics {
 
                 self.crud.send(data);
 
+                item.time = new Date().toISOString();
+                item.dataIn = [];
+                item.dataOut = [];
+                item.memory = [];
+
+                // TODO: setBandwidth for metric sent to storage
+                // this.setBandwidth({ type: 'in', data, organization_id })
+                this.setBandwidth({ data, organization_id })
+
             }
         })
-
-        this.refresh();
-
-        // TODO: setBandwidth for metric sent to storage
-        // this.setBandwidth({ type: 'in', data, organization_id })
-        this.setBandwidth({ data, organization_id })
 
     }
 
