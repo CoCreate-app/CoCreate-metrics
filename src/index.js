@@ -1,12 +1,9 @@
-const process = require("process")
-
 class CoCreateMetrics {
     constructor(crud) {
-        this.wsManager = crud.wsManager,
-            this.crud = crud;
+        this.wsManager = crud.wsManager;
+        this.crud = crud;
         this.metrics = new Map();
         this.cycleTime = 60;
-        this.staticMemorySize = "10";
         this.init();
     }
 
@@ -14,30 +11,15 @@ class CoCreateMetrics {
         if (this.wsManager) {
             this.wsManager.on('setBandwidth', (data) => this.setBandwidth(data));
             this.wsManager.on('createMetrics', (data) => this.create(data));
-            this.wsManager.on('deleteMetrics', (data) => this.remove(data));
-            this.wsManager.on('changeCountMetrics', (data) => this.changeCount(data))
+            this.wsManager.on('deleteMetrics', (data) => this.delete(data));
+            this.wsManager.on('updateMetrics', (data) => this.update(data));
+            this.wsManager.on('deleteOrg', async (organization_id) => this.metrics.delete(organization_id));
         }
-
-        process.on('deleteOrg', async (organization_id) => {
-            this.metrics.delete(organization_id)
-        })
 
         let self = this;
         this.timer = setInterval(() => {
             self.store();
         }, self.cycleTime * 1000);
-    }
-
-    __refresh() {
-        let date = new Date();
-        let strDate = date.toISOString();
-
-        this.metrics.forEach((item) => {
-            item.time = strDate;
-            item.in_size = [];
-            item.out_size = [];
-            item.memorySize = [];
-        })
     }
 
     setBandwidth({ type, data, organization_id }) {
@@ -60,9 +42,9 @@ class CoCreateMetrics {
                 item.time = date.toISOString();
 
                 if (type == "in") {
-                    item.in_size.push(size);
+                    item.dataIn.push(size);
                 } else {
-                    item.out_size.push(size);
+                    item.dataOut.push(size);
                 }
             }
 
@@ -71,90 +53,82 @@ class CoCreateMetrics {
         }
     }
 
-    setMemory({ data, organization_id }) {
-        if (data > 0 && organization_id) {
-            let item = this.metrics.get(organization_id)
-            if (!item) return
-
-            item.memory = data;
-            item.memory_cnt = 0;
-        }
-    }
-
-    create({ organization_id, client_cnt, total_cnt }) {
+    create({ organization_id, clients }) {
         if (!organization_id || organization_id == 'users') return;
 
         let metric = this.metrics.get(organization_id);
 
         if (!metric) {
             this.metrics.set(organization_id, {
-                in_size: [],
-                out_size: [],
-                memorySize: [],
-                total_cnt: total_cnt,
-                client_cnt: client_cnt
+                dataIn: [],
+                dataOut: [],
+                memory: [],
+                clients
             })
         } else {
-            metric.client_cnt = client_cnt;
+            metric.clients = clients;
         }
     }
 
-    remove({ organization_id }) {
-        this.metrics.delete(organization_id)
-    }
-
-    changeCount({ organization_id, total_cnt, client_cnt }) {
+    update({ organization_id, clients }) {
         if (!organization_id || organization_id == 'users') return;
         let metric = this.metrics.get(organization_id)
         if (metric) {
-            metric['total_cnt'] = total_cnt;
-            metric['client_cnt'] = client_cnt;
+            metric['clients'] = clients;
         } else {
-            this.create({ organization_id, client_cnt, total_cnt })
+            this.create({ organization_id, clients })
         }
     }
 
-    async store() {
+    delete({ organization_id }) {
+        this.metrics.delete(organization_id)
+    }
+
+    refresh() {
         let date = new Date();
+        let strDate = date.toISOString();
+
+        this.metrics.forEach((item) => {
+            item.time = strDate;
+            item.dataIn = [];
+            item.dataOut = [];
+            item.memory = [];
+        })
+    }
+
+    async store() {
+        let data, date = new Date();
         let self = this;
-
-        let total_cnt = 0;
-        this.metrics.forEach((item) => { total_cnt += item.client_cnt })
-
-        const used = process.memoryUsage();
-        let totalMemory = used.heapUsed;
 
         this.metrics.forEach(async (item, organization_id) => {
             if (organization_id) {
-                let inSize = 0, outSize = 0, memorySize = 0
-                inSize = item.in_size.reduce((a, b) => a + b, 0);
-                outSize = item.out_size.reduce((a, b) => a + b, 0);
+                let dataIn = 0, dataOut = 0, memory = 0
+                dataIn = item.dataIn.reduce((a, b) => a + b, 0);
+                dataOut = item.dataOut.reduce((a, b) => a + b, 0);
 
-                let maxIn = 0, maxOut = 0
+                let maxIn = 0, maxOut = 0, averageIn = 0, averageOut = 0
 
-                if (inSize > 0) {
-                    inSize = inSize / item.in_size.length;
-                    maxIn = Math.max(...item.in_size);
+                if (dataIn > 0) {
+                    averageIn = dataIn / item.dataIn.length;
+                    maxIn = Math.max(...item.dataIn);
                 }
 
-                if (outSize > 0) {
-                    outSize = inSize / item.out_size.length;
-                    maxOut = Math.max(...item.out_size);
+                if (dataOut > 0) {
+                    averageOut = dataOut / item.dataOut.length;
+                    maxOut = Math.max(...item.dataOut);
                 }
 
-                //. calcuate memory size
-                // memorySize = (item.client_cnt / total_cnt) * totalMemory + inSize + outSize;
-                memorySize = maxIn > maxOut ? maxIn : maxOut;
+                memory = (dataIn + dataOut) / 2;
 
-                let data = {
+                data = {
                     method: 'create.object',
                     array: 'metrics',
                     object: {
                         date,
-                        in_size: inSize,
-                        out_size: outSize,
-                        memorySize,
-                        client_cnt: item.client_cnt
+                        dataIn,
+                        dataOut,
+                        memory,
+                        clients: item.clients
                     },
                     organization_id
                 }
@@ -168,7 +142,13 @@ class CoCreateMetrics {
 
             }
         })
-        this.__refresh();
+
+        this.refresh();
+
+        // TODO: setBandwidth for metric sent to storage
+        // this.setBandwidth({ type: 'in', data, organization_id })
+        this.setBandwidth({ data, organization_id })
+
     }
 
 }
