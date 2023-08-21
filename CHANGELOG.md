@@ -1,3 +1,10 @@
+## [1.7.2](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.7.1...v1.7.2) (2023-08-21)
+
+
+### Bug Fixes
+
+* removed build as no webpack.config exist ([e72205d](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/e72205dddb892d9b19fcdb0f5bd0209da6c32b74))
+
 ## [1.7.1](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.7.0...v1.7.1) (2023-08-21)
 
 
