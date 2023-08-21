@@ -1,3 +1,15 @@
+## [1.6.1](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.6.0...v1.6.1) (2023-08-21)
+
+
+### Bug Fixes
+
+* /dist/CoCreate.js updated to https://CoCreate.app/dist/CoCreate.js ([3d7389b](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/3d7389b0f23ae9e99577ff9f7394526fb43b13d9))
+* improved handling of database stats ([7c48eab](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/7c48eab3a4ea27748609c1615872c6f712429aad))
+* removed refresh function and handle its logic in store function ([c96e382](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/c96e3821752d0c4630f20767423efc4bf0e8e738))
+* replace cdn with /dist ([bfbedf5](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/bfbedf5d99fcf361b00ae140d9d1bd70aa8443d1))
+* update file uploader ([9adc734](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/9adc7342bcc9509c8bbc3ee1858a0ca95f7fb65c))
+* Update variable names for better readability. Improved memory usage ([275c936](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/275c936a1c28a4d410cacafe8e2b5d6d95122cb6))
+
 # [1.6.0](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.5.0...v1.6.0) (2023-08-17)
 
 
