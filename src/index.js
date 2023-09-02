@@ -142,6 +142,11 @@ class CoCreateMetrics {
 
     }
 
+    async usage() {
+        const platformOrganization = crud.config.organization_id
+        console.log('platformOrganization: ', platformOrganization)
+    }
+
 }
 
 module.exports = CoCreateMetrics;
