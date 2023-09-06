@@ -2,149 +2,127 @@ class CoCreateMetrics {
     constructor(crud) {
         this.wsManager = crud.wsManager;
         this.crud = crud;
-        this.metrics = new Map();
-        this.cycleTime = 60;
         this.init();
     }
 
     init() {
         if (this.wsManager) {
             this.wsManager.on('setBandwidth', (data) => this.setBandwidth(data));
-            this.wsManager.on('createMetrics', (data) => this.create(data));
-            this.wsManager.on('deleteMetrics', (data) => this.delete(data));
-            this.wsManager.on('updateMetrics', (data) => this.update(data));
-            this.wsManager.on('deleteOrg', async (organization_id) => this.metrics.delete(organization_id));
         }
-
-        let self = this;
-        this.timer = setInterval(() => {
-            self.store();
-        }, self.cycleTime * 1000);
     }
 
-    setBandwidth({ type, data, organization_id }) {
+    async setBandwidth({ type, data, organization_id }) {
         try {
-            let date = new Date();
-            let size = 0;
-
-            type = type || 'in'
+            let timeStamp = new Date();
+            let dataDirection = type || 'in'
+            let dataTransfered = 0;
 
             if (data instanceof Buffer) {
-                size = data.byteLength;
+                dataTransfered = data.byteLength;
             } else if (data instanceof String || typeof data === 'string') {
-                size = Buffer.byteLength(data, 'utf8');
+                dataTransfered = Buffer.byteLength(data, 'utf8');
+            } else if (typeof data === 'object') {
+                const jsonString = JSON.stringify(data);
+                dataTransfered = Buffer.byteLength(jsonString, 'utf8');
             }
+            if (!dataTransfered || !organization_id)
+                return
 
-            if (size > 0 && organization_id) {
-                let item = this.metrics.get(organization_id);
-                if (!item) return
+            dataTransfered += 1500; // bytes used for handeling transaction and balance. 
+            dataTransfered = dataTransfered / 1073741824;
+            dataTransfered = dataTransfered.toFixed(32);
+            dataTransfered = parseFloat(dataTransfered);
 
-                item.time = date.toISOString();
-
-                if (type == "in") {
-                    item.dataIn.push(size);
-                } else {
-                    item.dataOut.push(size);
-                }
-            }
-
-        } catch (err) {
-            console.log(err)
-        }
-    }
-
-    create({ organization_id, clients }) {
-        if (!organization_id || organization_id == 'users') return;
-
-        let metric = this.metrics.get(organization_id);
-
-        if (!metric) {
-            this.metrics.set(organization_id, {
-                dataIn: [],
-                dataOut: [],
-                memory: [],
-                clients
+            const platformOrganization = this.crud.config.organization_id
+            let organization = await this.crud.send({
+                method: 'read.object',
+                array: 'organizations',
+                object: { _id: organization_id },
+                organization_id: platformOrganization
             })
-        } else {
-            metric.clients = clients;
-        }
-    }
 
-    update({ organization_id, clients }) {
-        if (!organization_id || organization_id == 'users') return;
-        let metric = this.metrics.get(organization_id)
-        if (metric) {
-            metric['clients'] = clients;
-        } else {
-            this.create({ organization_id, clients })
-        }
-    }
-
-    delete({ organization_id }) {
-        this.metrics.delete(organization_id)
-    }
-
-    async store() {
-        let date = new Date();
-        let self = this;
-
-        this.metrics.forEach(async (item, organization_id) => {
-            if (organization_id) {
-                let dataIn = 0, dataOut = 0, memory = 0
-                dataIn = item.dataIn.reduce((a, b) => a + b, 0);
-                dataOut = item.dataOut.reduce((a, b) => a + b, 0);
-
-                let maxIn = 0, maxOut = 0, averageIn = 0, averageOut = 0
-
-                if (dataIn > 0) {
-                    averageIn = dataIn / item.dataIn.length;
-                    maxIn = Math.max(...item.dataIn);
-                }
-
-                if (dataOut > 0) {
-                    averageOut = dataOut / item.dataOut.length;
-                    maxOut = Math.max(...item.dataOut);
-                }
-
-                memory = (dataIn + dataOut) / 2;
-
-                let data = {
-                    method: 'create.object',
-                    array: 'metrics',
-                    object: {
-                        date,
-                        dataIn,
-                        dataOut,
-                        memory,
-                        clients: item.clients
-                    },
-                    organization_id
-                }
-
-                let storage = await self.crud.send({ method: 'databaseStats', organization_id })
-
-                if (storage)
-                    data.object.storage = storage.stats
-
-                self.crud.send(data);
-
-                item.time = new Date().toISOString();
-                item.dataIn = [];
-                item.dataOut = [];
-                item.memory = [];
-
-                // TODO: setBandwidth for metric sent to storage
-                // this.setBandwidth({ type: 'in', data, organization_id })
-                this.setBandwidth({ data, organization_id })
-
+            if (organization && organization.object && organization.object[0]) {
+                organization = organization.object[0]
             }
-        })
 
+            if (organization.balance <= 0) {
+                this.wsManager.organizations.set(organization_id, false)
+            } else
+                this.wsManager.organizations.set(organization_id, true)
+
+
+            let isResetDataTransfer = false
+            if (organization.modified.on) {
+                let previousTimeStamp = new Date(organization.modified.on)
+                if (previousTimeStamp.getMonth() !== timeStamp.getMonth()) {
+                    isResetDataTransfer = true
+                    // TODO: good time reconcile the previous month data usage and balances 
+                }
+            }
+
+            let rate = this.getRate(organization.dataTransfered)
+            let amount = dataTransfered * rate
+            amount = -amount
+            amount = amount.toFixed(32)
+            amount = parseFloat(amount)
+
+            let balanceUpdate = {
+                method: 'update.object',
+                array: 'organizations',
+                object: {
+                    _id: organization_id,
+                    $inc: {
+                        balance: amount,
+                    }
+                },
+                organization_id: platformOrganization,
+                timeStamp
+            }
+
+            if (isResetDataTransfer)
+                balanceUpdate.object['dataTransfered'] = 0
+            else
+                balanceUpdate.object.$inc.dataTransfered = dataTransfered
+
+            this.crud.send(balanceUpdate)
+
+            let transaction = {
+                method: 'create.object',
+                array: 'transactions',
+                object: {
+                    organization_id,
+                    type: "withdrawal", // deposit, credit, withdrawal, debit
+                    amount,
+                    rate,
+                    dataDirection,
+                    dataTransfered,
+                },
+                organization_id,
+                timeStamp
+            }
+
+            // const transactionjsonString = JSON.stringify(balanceUpdate);
+            // const transactionbyteLength = Buffer.from(transactionjsonString).length;
+            // console.log(`transaction size in bytes: ${transactionbyteLength}`);
+
+            this.crud.send(transaction);
+        } catch (error) {
+            console.log('Metrics error', error)
+        }
     }
 
-    async usage() {
-        const platformOrganization = crud.config.organization_id
-        console.log('platformOrganization: ', platformOrganization)
+    getRate(totalUsage = 0) {
+        const tiers = [
+            { limit: 10, rate: 2 },
+            { limit: 100, rate: 1 },
+            { limit: 1000, rate: 0.5 },
+            { limit: 10000, rate: 0.25 },
+            { limit: 100000, rate: 0.12 },
+        ];
+
+        const matchingTier = tiers.find(tier => totalUsage < tier.limit);
+
+        return matchingTier ? matchingTier.rate : 0.12;
     }
 
 }
