@@ -56,7 +56,19 @@ class CoCreateMetrics {
                 let previousTimeStamp = new Date(organization.modified.on)
                 if (previousTimeStamp.getMonth() !== timeStamp.getMonth()) {
                     isResetDataTransfer = true
-                    // TODO: good time reconcile the previous month data usage and balances 
+                    this.crud.send({
+                        method: 'create.object',
+                        array: 'transactions',
+                        object: {
+                            organization_id,
+                            type: "withdrawal", // deposit, credit, withdrawal, debit
+                            dataTransfered: organization.dataTransfered,
+                            previousTimeStamp
+                        },
+                        organization_id: platformOrganization,
+                        timeStamp
+                    });
+                    organization.dataTransfered = 0
                 }
             }
 
@@ -101,11 +113,8 @@ class CoCreateMetrics {
                 timeStamp
             }
 
-            // const transactionjsonString = JSON.stringify(balanceUpdate);
-            // const transactionbyteLength = Buffer.from(transactionjsonString).length;
-            // console.log(`transaction size in bytes: ${transactionbyteLength}`);
-
             this.crud.send(transaction);
+
         } catch (error) {
             console.log('Metrics error', error)
         }
