@@ -1,3 +1,11 @@
+# [1.8.0](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.7.2...v1.8.0) (2023-09-07)
+
+
+### Features
+
+* manages dataTransfer, balance and transactions ([e832063](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/e832063a597f3151f4cdbc7322fad18dc10c6a57))
+* When a transaction begins in a new month create a transaction in platfpormDb for the previous month, then reset dataTransfered to 0 ([055b21b](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/055b21bd691298ff2dd27e0d138c06df7597803f))
+
 ## [1.7.2](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.7.1...v1.7.2) (2023-08-21)
 
 
