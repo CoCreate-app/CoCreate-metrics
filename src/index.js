@@ -50,6 +50,11 @@ class CoCreateMetrics {
             } else
                 this.wsManager.organizations.set(organization_id, true)
 
+            let isExpired = false
+            if (organization.lastDeposit) {
+                let lastDeposit = new Date(organization.lastDeposit)
+                isExpired = lastDeposit <= timeStamp.setFullYear(timeStamp.getFullYear() - 1)
+            }
 
             let isResetDataTransfer = false
             if (organization.modified.on) {
@@ -81,18 +86,20 @@ class CoCreateMetrics {
             let balanceUpdate = {
                 method: 'update.object',
                 array: 'organizations',
-                object: {
-                    _id: organization_id,
-                    $inc: {
-                        balance: amount,
-                    }
-                },
+                object: { _id: organization_id },
                 organization_id: platformOrganization,
                 timeStamp
             }
-
+            
+            if (isExpired)
+                balanceUpdate.object['balance'] = 0
+            else
+                balanceUpdate.object.$inc = { balance: amount }
+                
             if (isResetDataTransfer)
                 balanceUpdate.object['dataTransfered'] = 0
+            else if (!balanceUpdate.object.$inc)
+                balanceUpdate.object.$inc = { dataTransfered }
             else
                 balanceUpdate.object.$inc.dataTransfered = dataTransfered
 
