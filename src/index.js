@@ -17,7 +17,9 @@ class CoCreateMetrics {
             let dataDirection = type || 'in'
             let dataTransfered = 0;
 
-            if (data instanceof Buffer) {
+            if (typeof data === 'number') {
+                dataTransfered = data;
+            } else if (data instanceof Buffer) {
                 dataTransfered = data.byteLength;
             } else if (data instanceof String || typeof data === 'string') {
                 dataTransfered = Buffer.byteLength(data, 'utf8');
@@ -90,12 +92,12 @@ class CoCreateMetrics {
                 organization_id: platformOrganization,
                 timeStamp
             }
-            
+
             if (isExpired)
                 balanceUpdate.object['balance'] = 0
             else
                 balanceUpdate.object.$inc = { balance: amount }
-                
+
             if (isResetDataTransfer)
                 balanceUpdate.object['dataTransfered'] = 0
             else if (!balanceUpdate.object.$inc)
