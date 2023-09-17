@@ -1,3 +1,16 @@
+# [1.9.0](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.8.0...v1.9.0) (2023-09-17)
+
+
+### Bug Fixes
+
+* remove console.log ([2248a66](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/2248a669c8dfa33955b7c4fa9aafdb50b5fffb05))
+
+
+### Features
+
+* debounce balanceUpdate and transactions per organization ([d5548d4](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/d5548d4e4bd60d49a3b2defba50cfca8dbe6c9f3))
+* IsExpired managaement ([ae1f663](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/ae1f66317228f2e5a70bc5a5233ca216fb0a0407))
+
 # [1.8.0](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.7.2...v1.8.0) (2023-09-07)
 
 
