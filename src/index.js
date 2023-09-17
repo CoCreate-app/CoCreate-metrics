@@ -114,8 +114,6 @@ class CoCreateMetrics {
         dataTransfered = dataTransfered.toFixed(32);
         dataTransfered = parseFloat(dataTransfered);
 
-        console.log('sending: ', dataTransfered, org)
-
         let rate = this.getRate(organization.dataTransfered)
         let amount = dataTransfered * rate
         amount = -amount
