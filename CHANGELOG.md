@@ -1,3 +1,11 @@
+## [1.9.1](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.9.0...v1.9.1) (2023-09-18)
+
+
+### Bug Fixes
+
+*  Add path and pathname ([07435cd](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/07435cdbb61e50cbc3ee2dc941c2628ebeffe102))
+* Update dCoCreate dpendencies to latest versions ([9f12fed](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/9f12fedfa445d70309e800959a1b995cd7fddb78))
+
 # [1.9.0](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.8.0...v1.9.0) (2023-09-17)
 
 
