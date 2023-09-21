@@ -178,11 +178,11 @@ class CoCreateMetrics {
 
     getRate(totalUsage = 0) {
         const tiers = [
-            { limit: 10, rate: 2 },
-            { limit: 100, rate: 1 },
-            { limit: 1000, rate: 0.5 },
-            { limit: 10000, rate: 0.25 },
-            { limit: 100000, rate: 0.12 },
+            { limit: 10, rate: 4 },
+            { limit: 100, rate: 2 },
+            { limit: 1000, rate: 1 },
+            { limit: 10000, rate: 0.5 },
+            { limit: 100000, rate: 0.25 }
         ];
 
         const matchingTier = tiers.find(tier => totalUsage < tier.limit);
