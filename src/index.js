@@ -100,10 +100,10 @@ class CoCreateMetrics {
                         organization_id,
                         type: "withdrawal", // deposit, credit, withdrawal, debit
                         dataTransfered: organization.dataTransfered,
-                        previousTimeStamp: previousTimeStamp.toISOString()
+                        previousTimeStamp
                     },
                     organization_id: platformOrganization,
-                    timeStamp: timeStamp.toISOString()
+                    timeStamp
                 });
                 organization.dataTransfered = 0
             }
@@ -120,7 +120,6 @@ class CoCreateMetrics {
         amount = amount.toFixed(32)
         amount = parseFloat(amount)
 
-        timeStamp = timeStamp.toISOString()
         let balanceUpdate = {
             method: 'update.object',
             array: 'organizations',
