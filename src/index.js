@@ -76,10 +76,12 @@ class CoCreateMetrics {
         } else return
 
         //TODO: if (organization.transactionInterval) // set in global map to use with timeout 1 sec intervals to 3600 sec
-        if (organization.balance <= 0) {
-            this.wsManager.organizations.set(organization_id, false)
-        } else
-            this.wsManager.organizations.set(organization_id, true)
+        if (this.wsManager.organizations.has(organization_id)) {
+            if (organization.balance <= 0) {
+                this.wsManager.organizations.get(organization_id).status = false
+            } else
+                this.wsManager.organizations.get(organization_id).status = true
+        }
 
         let timeStamp = new Date();
         let isExpired = false
