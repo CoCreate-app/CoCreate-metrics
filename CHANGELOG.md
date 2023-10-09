@@ -1,3 +1,12 @@
+## [1.9.2](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.9.1...v1.9.2) (2023-10-09)
+
+
+### Bug Fixes
+
+* removed timeStamp.toISOString() ([f745be4](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/f745be4704db5d4aa754226a1c3641d26f07795e))
+* update getRates ([9a576a7](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/9a576a792e10c00815483de95b5d3b7f4c27edbe))
+* update to use new organization.staus ([e8ea453](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/e8ea45385aa1cf5a65809695dc4b8f4985d8220a))
+
 ## [1.9.1](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.9.0...v1.9.1) (2023-09-18)
 
 
