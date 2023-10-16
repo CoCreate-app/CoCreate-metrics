@@ -79,8 +79,14 @@ class CoCreateMetrics {
         if (this.wsManager.organizations.has(organization_id)) {
             if (organization.balance <= 0) {
                 this.wsManager.organizations.get(organization_id).status = false
-            } else
+                this.wsManager.organizations.get(organization_id).organizationBalance = false
+                this.wsManager.organizations.get(organization_id).error = 'Your balance has fallen bellow 0'
+
+            } else {
                 this.wsManager.organizations.get(organization_id).status = true
+                this.wsManager.organizations.get(organization_id).organizationBalance = true
+                this.wsManager.organizations.get(organization_id).error = ''
+            }
         }
 
         let timeStamp = new Date();
