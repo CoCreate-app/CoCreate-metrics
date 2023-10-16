@@ -1,3 +1,10 @@
+## [1.9.5](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.9.4...v1.9.5) (2023-10-16)
+
+
+### Bug Fixes
+
+* improved error handling ([ca4e02e](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/ca4e02e647a551d9ea17323b521f67dad6c9fb65))
+
 ## [1.9.4](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.9.3...v1.9.4) (2023-10-14)
 
 
