@@ -1,3 +1,10 @@
+## [1.9.7](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.9.6...v1.9.7) (2023-10-25)
+
+
+### Bug Fixes
+
+* organization.modified conditions ([5974872](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/597487209da6834c22b5ac4f9e82832debb709a2))
+
 ## [1.9.6](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.9.5...v1.9.6) (2023-10-25)
 
 
