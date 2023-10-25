@@ -97,7 +97,7 @@ class CoCreateMetrics {
         }
 
         let isResetDataTransfer = false
-        if (organization.modified.on) {
+        if (organization.modified && organization.modified.on) {
             let previousTimeStamp = new Date(organization.modified.on)
             if (previousTimeStamp.getMonth() !== timeStamp.getMonth()) {
                 isResetDataTransfer = true
