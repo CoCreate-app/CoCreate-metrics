@@ -62,7 +62,7 @@ class CoCreateMetrics {
 
         const platformOrganization = this.crud.config.organization_id
         let organization = await this.crud.send({
-            method: 'read.object',
+            method: 'object.read',
             array: 'organizations',
             object: { _id: organization_id },
             organization_id: platformOrganization
@@ -102,7 +102,7 @@ class CoCreateMetrics {
             if (previousTimeStamp.getMonth() !== timeStamp.getMonth()) {
                 isResetDataTransfer = true
                 this.crud.send({
-                    method: 'create.object',
+                    method: 'object.create',
                     array: 'transactions',
                     object: {
                         organization_id,
@@ -129,7 +129,7 @@ class CoCreateMetrics {
         amount = parseFloat(amount)
 
         let balanceUpdate = {
-            method: 'update.object',
+            method: 'object.update',
             array: 'organizations',
             object: { _id: organization_id },
             organization_id: platformOrganization,
@@ -153,7 +153,7 @@ class CoCreateMetrics {
         this.crud.send(balanceUpdate)
 
         let transaction = {
-            method: 'create.object',
+            method: 'object.create',
             array: 'transactions',
             object: {
                 organization_id,
