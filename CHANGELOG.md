@@ -1,3 +1,11 @@
+## [1.9.8](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.9.7...v1.9.8) (2023-11-03)
+
+
+### Bug Fixes
+
+* update dependencies to the lates versions ([556958c](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/556958c6fa3c7ea15bd28adc76d9b57d4a00a16e))
+* update method to use object.update etc ([b3acb52](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/b3acb52ef3d02d4e12dcbd494d3b8b264036db47))
+
 ## [1.9.7](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.9.6...v1.9.7) (2023-10-25)
 
 
