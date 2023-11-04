@@ -137,16 +137,16 @@ class CoCreateMetrics {
         }
 
         if (isExpired)
-            balanceobject.update['balance'] = 0
+            balanceUpdate.object['balance'] = 0
         else
-            balanceobject.update.$inc = { balance: amount }
+            balanceUpdate.object.$inc = { balance: amount }
 
         if (isResetDataTransfer)
-            balanceobject.update['dataTransfered'] = 0
-        else if (!balanceobject.update.$inc)
-            balanceobject.update.$inc = { dataTransfered }
+            balanceUpdate.object['dataTransfered'] = 0
+        else if (!balanceUpdate.object.$inc)
+            balanceUpdate.object.$inc = { dataTransfered }
         else
-            balanceobject.update.$inc.dataTransfered = dataTransfered
+            balanceUpdate.object.$inc.dataTransfered = dataTransfered
 
         // console.log('balanceUpdate: ', balanceUpdate)
 
