@@ -89,7 +89,7 @@ class CoCreateMetrics {
             }
         }
 
-        let timeStamp = new Date();
+        let timeStamp = new Date(new Date().toISOString());
         let isExpired = false
         if (organization.lastDeposit) {
             let lastDeposit = new Date(organization.lastDeposit)
