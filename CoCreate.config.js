@@ -12,8 +12,7 @@ module.exports = {
                 "pathname": "/docs/metric-server/index.html",
                 "src": "{{./docs/index.html}}",
                 "host": [
-                    "*",
-                    "general.cocreate.app"
+                    "*"
                 ],
                 "directory": "metric-server",
                 "content-type": "text/html",
