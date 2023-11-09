@@ -1,3 +1,14 @@
+## [1.9.9](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.9.8...v1.9.9) (2023-11-09)
+
+
+### Bug Fixes
+
+* meta name typo ([136b0dc](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/136b0dcbe17e60cae66eb34da337f100f3b48487))
+* typo ([1ee220a](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/1ee220aa9f6207ae56f9d562a2918639d8eaa323))
+* update crud methods ([8a0f352](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/8a0f3526029a8d21eb7d91cb19b7f6f04662e3d1))
+* update host ([5c24953](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/5c24953b1b6da59b3fa115f01efcb393d17594f1))
+* updated date to ISO format with UTC timezone ([baf9b13](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/baf9b134e2ceee758f38eb5713703e78c95479b8))
+
 ## [1.9.8](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.9.7...v1.9.8) (2023-11-03)
 
 
