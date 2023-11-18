@@ -1,3 +1,10 @@
+## [1.9.11](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.9.10...v1.9.11) (2023-11-18)
+
+
+### Bug Fixes
+
+* update getRate ([c289d0c](https://github.com/CoCreate-app/CoCreate-metrics-server/commit/c289d0c2d622794e1093b63dc95c11e51929e574))
+
 ## [1.9.10](https://github.com/CoCreate-app/CoCreate-metrics-server/compare/v1.9.9...v1.9.10) (2023-11-12)
 
 
