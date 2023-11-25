@@ -8,13 +8,13 @@ module.exports = {
             "object": {
                 "_id": "6204253780b409001727b73f",
                 "name": "index.html",
-                "path": "/docs/metric-server",
-                "pathname": "/docs/metric-server/index.html",
+                "path": "/docs/metrics",
+                "pathname": "/docs/metrics/index.html",
                 "src": "{{./docs/index.html}}",
                 "host": [
                     "*"
                 ],
-                "directory": "metric-server",
+                "directory": "metrics",
                 "content-type": "text/html",
                 "public": "true"
             }

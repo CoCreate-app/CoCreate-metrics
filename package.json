@@ -1,7 +1,7 @@
 {
-  "name": "@cocreate/metrics-server",
+  "name": "@cocreate/metrics",
   "version": "1.11.1",
-  "description": "CoCreate-metrics-server",
+  "description": "CoCreate-metrics",
   "keywords": [
     "cocreate-metrics",
     "cocreate",
@@ -26,14 +26,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CoCreate-app/CoCreate-metrics-server.git"
+    "url": "git+https://github.com/CoCreate-app/CoCreate-metrics.git"
   },
   "author": "CoCreate LLC",
   "license": "AGPL-3.0",
   "bugs": {
-    "url": "https://github.com/CoCreate-app/CoCreate-metrics-server/issues"
+    "url": "https://github.com/CoCreate-app/CoCreate-metrics/issues"
   },
-  "homepage": "https://cocreate.app/docs/CoCreate-metrics-server",
+  "homepage": "https://cocreate.app/docs/CoCreate-metrics",
   "scripts": {
     "demo": "PORT=5000 node demo/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
