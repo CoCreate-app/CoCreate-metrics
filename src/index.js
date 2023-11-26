@@ -28,7 +28,7 @@ class CoCreateMetrics {
                 cpuTotalUsage += coreUsage.usage
             });
             cpuTotalUsage = cpuTotalUsage / cpuUsage.length
-            console.log(`CPU usage: ${cpuTotalUsage.toFixed(2)}%}`);
+            // console.log(`CPU usage: ${cpuTotalUsage.toFixed(2)}%}`);
         }, 1000); // 1-second interval
     }
 
@@ -50,7 +50,7 @@ class CoCreateMetrics {
 
         // console.log(`Total Memory: ${totalMemory} kB`);
         // console.log(`Used Memory: ${usedMemory} kB`);
-        console.log(`Memory Usage: ${usedMemoryPercentage.toFixed(2)}%`);
+        // console.log(`Memory Usage: ${usedMemoryPercentage.toFixed(2)}%`);
     };
 
     // Function to read CPU info (simplified)
