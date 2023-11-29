@@ -1,3 +1,10 @@
+## [1.11.2](https://github.com/CoCreate-app/CoCreate-metrics/compare/v1.11.1...v1.11.2) (2023-11-29)
+
+
+### Bug Fixes
+
+* renamed to @cocreate/metrics ([80c194f](https://github.com/CoCreate-app/CoCreate-metrics/commit/80c194f60ba43c01fa012dee7a0e1c1a8e9c86d2))
+
 ## [1.11.1](https://github.com/CoCreate-app/CoCreate-metrics/compare/v1.11.0...v1.11.1) (2023-11-25)
 
 ### Bug Fixes

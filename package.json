@@ -1,6 +1,6 @@
 {
   "name": "@cocreate/metrics",
-  "version": "1.11.1",
+  "version": "1.11.2",
   "description": "CoCreate-metrics",
   "keywords": [
     "cocreate-metrics",
@@ -40,4 +40,3 @@
     "postinstall": "node -e \"const { execSync } = require('child_process'); try { execSync('coc --version', { stdio: 'ignore' }); } catch (error) { try { execSync('npm install -g @cocreate/cli', { stdio: 'inherit' }); console.log('Installed \"@cocreate/cli\" globally.'); } catch (error) { console.error('Failed to install \"@cocreate/cli\" globally:', error); } }\""
   }
 }
-
