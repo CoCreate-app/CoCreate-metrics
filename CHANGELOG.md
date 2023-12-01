@@ -1,3 +1,11 @@
+# [1.12.0](https://github.com/CoCreate-app/CoCreate-metrics/compare/v1.11.2...v1.12.0) (2023-12-01)
+
+
+### Features
+
+* gets server metrics using proc/ ([27686ca](https://github.com/CoCreate-app/CoCreate-metrics/commit/27686ca3131e78b0849c1cee2664221e06f1dffd))
+* setInterval using worker count ([92f2c8e](https://github.com/CoCreate-app/CoCreate-metrics/commit/92f2c8e0025f461ce8419c0c57e7508e52726934))
+
 ## [1.11.2](https://github.com/CoCreate-app/CoCreate-metrics/compare/v1.11.1...v1.11.2) (2023-11-29)
 
 
