@@ -1,3 +1,10 @@
+## [1.12.1](https://github.com/CoCreate-app/CoCreate-metrics/compare/v1.12.0...v1.12.1) (2023-12-03)
+
+
+### Bug Fixes
+
+* removed console.log ([78df783](https://github.com/CoCreate-app/CoCreate-metrics/commit/78df783e9cdbb67d5f542017ae2fa7d034da922f))
+
 # [1.12.0](https://github.com/CoCreate-app/CoCreate-metrics/compare/v1.11.2...v1.12.0) (2023-12-01)
 
 
