@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/CoCreate-app/CoCreate-metrics/compare/v1.12.1...v1.13.0) (2024-01-08)
+
+
+### Features
+
+* bumped CoCreate dependencies to their latest versions ([fd16515](https://github.com/CoCreate-app/CoCreate-metrics/commit/fd1651515c75c6eb35f2fc3a2a168c17629eecdf))
+
 ## [1.12.1](https://github.com/CoCreate-app/CoCreate-metrics/compare/v1.12.0...v1.12.1) (2023-12-03)
 
 
