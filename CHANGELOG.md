@@ -1,3 +1,10 @@
+## [1.13.1](https://github.com/CoCreate-app/CoCreate-metrics/compare/v1.13.0...v1.13.1) (2024-02-05)
+
+
+### Bug Fixes
+
+* Removed https://cdn.cocreate.app/latest/CoCreate.min.css ([11b0d2a](https://github.com/CoCreate-app/CoCreate-metrics/commit/11b0d2af15ed565ffaa3c8fb2c9c3c74b94966db))
+
 # [1.13.0](https://github.com/CoCreate-app/CoCreate-metrics/compare/v1.12.1...v1.13.0) (2024-01-08)
 
 
