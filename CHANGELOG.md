@@ -1,3 +1,15 @@
+# [1.14.0](https://github.com/CoCreate-app/CoCreate-metrics/compare/v1.13.3...v1.14.0) (2024-11-04)
+
+
+### Bug Fixes
+
+* prettier.config options ([dc365eb](https://github.com/CoCreate-app/CoCreate-metrics/commit/dc365eb8d0030204d2ce129ac944358f4504d373))
+
+
+### Features
+
+* add prettier.config.js and format files ([00f3153](https://github.com/CoCreate-app/CoCreate-metrics/commit/00f3153eb444c79f142b82fcf7faeddd9eb259cf))
+
 ## [1.13.3](https://github.com/CoCreate-app/CoCreate-metrics/compare/v1.13.2...v1.13.3) (2024-06-23)
 
 
