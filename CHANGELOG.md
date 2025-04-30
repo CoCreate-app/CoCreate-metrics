@@ -1,3 +1,10 @@
+## [1.14.1](https://github.com/CoCreate-app/CoCreate-metrics/compare/v1.14.0...v1.14.1) (2025-04-30)
+
+
+### Bug Fixes
+
+* webpack.config and devdependencies ([c2f450c](https://github.com/CoCreate-app/CoCreate-metrics/commit/c2f450ccfcde11125fb0a584c3c5f22a5fb9400a))
+
 # [1.14.0](https://github.com/CoCreate-app/CoCreate-metrics/compare/v1.13.3...v1.14.0) (2024-11-04)
 
 
