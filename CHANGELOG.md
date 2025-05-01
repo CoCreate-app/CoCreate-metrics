@@ -1,3 +1,10 @@
+## [1.14.2](https://github.com/CoCreate-app/CoCreate-metrics/compare/v1.14.1...v1.14.2) (2025-05-01)
+
+
+### Bug Fixes
+
+* update [@cocreate](https://github.com/cocreate) dependencies ([8b0a381](https://github.com/CoCreate-app/CoCreate-metrics/commit/8b0a3812fcb34bcc95bf70152af8b3f9bc900fc8))
+
 ## [1.14.1](https://github.com/CoCreate-app/CoCreate-metrics/compare/v1.14.0...v1.14.1) (2025-04-30)
 
 
